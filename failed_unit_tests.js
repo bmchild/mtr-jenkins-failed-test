@@ -1,5 +1,5 @@
-var JENKINS_URL = "http://ci.crengland.com";
-var PROJECT_NAME = "cre_service_tier";
+var JENKINS_URL = "<PUBLIC JENKINS URL HERE>";
+var PROJECT_NAME = "<Project Name Here>";
 
 /** Parses Jenkins API results.data and returns list of failures */
 var parseFailures = function(data) {
