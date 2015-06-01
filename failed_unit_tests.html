@@ -1,0 +1,74 @@
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>cre_service_tier Unit Tests</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		body {
+		  padding-top: 90px;
+		}
+
+		.bg-success {
+			padding: 15px;
+		}
+
+		.result-row {
+			font-size: 18px;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top" id="testsNavBar">
+		<div class="container">
+			<h1 style="color: white">{{projectName}} 
+				{{#if failedTests.length}}
+				<span class="label label-danger" id="failureLabel">{{failedTests.length}} Failures</span>
+				{{else}}
+					<span class="label label-success" id="failureLabel">No Failures</span>
+				{{/if}}
+			</h1>
+		</div>
+	</nav>
+	<div class="container">
+		{{#if failedTests.length}}
+			<div class="panel panel-danger">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">These Tests are Failing!</div>
+
+			  <!-- Table -->
+			  <table class="table table-striped">
+			  	<thead>
+			    <tr>
+			    	<th>Class</th>
+			    	<th>Test Name</th>
+			    	<th>Status</th>
+			    </tr>
+			    </thead>
+
+			    <tbody id="testResults">
+			    	{{#each failedTests}}
+			    		{{> testRow}}
+			    	{{/each}}
+				</tbody>
+			  </table>
+			</div>
+		{{else}}
+			<p class="bg-success">All Tests Are Passing!</p>
+		{{/if}}
+	
+	</div>
+
+</body>
+
+<template name="testRow">
+	<tr class="result-row">
+    	<td>{{className}}</td>
+    	<td>{{testName}}</td>
+    	<td>{{status}}</td>
+    </tr>
+</template>
+
+
